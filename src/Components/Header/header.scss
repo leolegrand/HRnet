@@ -1,0 +1,84 @@
+.header {
+  font-family: 'Bree Serif', serif;
+  color: #1e66fe;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    & h1 {
+      font-size: 100px;
+    }
+    & span {
+      font-size: 30px;
+      animation-delay: 3s;
+      animation: bounce 1.5s ease-in-out;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    &__button {
+      border-radius: 5px;
+      background-color: #1e66fe;
+      padding: 17px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      &:hover {
+        opacity: 0.9;
+      }
+      &:active {
+        scale: 0.98;
+      }
+    }
+  }
+}
+
+@keyframes progressiveWidth {
+  to {
+    width: 85%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-100px) scaleX(0.75);
+  }
+  10% {
+    transform: translateY(0%) scaleX(1);
+  }
+  20% {
+    transform: translateY(-5%) scaleX(0.95);
+  }
+  30% {
+    transform: translateY(0%) scaleX(1);
+  }
+  40% {
+    transform: translateY(-4%) scaleX(0.96);
+  }
+  50% {
+    transform: translateY(0%) scaleX(1);
+  }
+  60% {
+    transform: translateY(-3%) scaleX(0.98);
+  }
+  70% {
+    transform: translateY(0%) scaleX(1);
+  }
+  80% {
+    transform: translateY(-2%) scaleX(0.99);
+  }
+  100% {
+    transform: translateY(0) scaleX(1);
+  }
+}
