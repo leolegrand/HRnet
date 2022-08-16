@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import '../../styles/newemployeeform.css'
+import { useDispatch } from 'react-redux'
+import { employeesAddition } from '../../features/employees/employeesSlice'
 
 import Box from '@mui/material/Box'
 import MenuItem from '@mui/material/MenuItem'
@@ -17,35 +18,83 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { states } from '../../services/usaStates'
 import { departments } from '../../services/hrnetDepartments'
 import { Button } from '@mui/material'
+
 import SaveRoundedIcon from '@mui/icons-material/SaveRounded'
 
-import { Dialog } from 'leolegrandm-simple-dialog/dist'
+import Dialog from 'leolegrandm-simple-dialog/dist/components/Dialog'
+import newUser from './new-user.png'
+import formError from './form-error.png'
 
-const handleSubmit = () => {
-  return (
-    <Dialog
-      modalType={'succes'}
-      closeIcon={true}
-      callToAction={true}
-      optionParams={false}
-    />
-  )
-}
+import '../../styles/newemployeeform.css'
+import { useNavigate } from 'react-router-dom'
 
 const NewEmployeeForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [user, setUser] = useState({
+    id: '',
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    startDate: '',
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    department: '',
+  })
   const [birthDate, setBirthdate] = useState(null)
   const [startDate, setStartdate] = useState(null)
-
+  const [userDepartment, setuserDepartment] = useState('')
   const [userLocationState, setuserLocationState] = useState('')
+  const [isShown, setIsShown] = useState(false)
+  const [formIsValid, setFormIsValid] = useState(null)
 
-  const handleChangeLocationState = (event) => {
-    setuserLocationState(event.target.value)
+  const datePickerHandle = (name, value) => {
+    setUser({
+      ...user,
+      [name]: new Date(value).toLocaleDateString('en'),
+    })
   }
 
-  const [userDepartment, setuserDepartment] = useState('')
+  const inputHandle = (e) => {
+    setUser(() => ({
+      ...user,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
-  const handleChangeDepartment = (event) => {
-    setuserDepartment(event.target.value)
+  const newUserDialog = {
+    title: 'succes',
+    icon: newUser,
+    altText: 'employee image',
+    content: 'New employee successfully saved',
+    cta: 'Thanks, machine !',
+  }
+
+  const formErrorDialog = {
+    title: 'error',
+    icon: formError,
+    altText: 'error image',
+    content: 'Please enter a first name, last name and a department.',
+    cta: 'Whoops !',
+  }
+
+  const handleSubmit = (e) => {
+    if (
+      user.firstName !== '' &&
+      user.lastName !== '' &&
+      user.department !== ''
+    ) {
+      setFormIsValid(true)
+      setIsShown(!isShown)
+      user.id = `${user.firstName}${user.lastName}${user.department}`
+      dispatch(employeesAddition(user))
+    } else {
+      setFormIsValid(false)
+      setIsShown(!isShown)
+    }
   }
 
   return (
@@ -57,6 +106,8 @@ const NewEmployeeForm = () => {
         required={true}
         label="First Name"
         variant="outlined"
+        name={'firstName'}
+        onChange={inputHandle}
       />
 
       <TextField
@@ -64,6 +115,8 @@ const NewEmployeeForm = () => {
         required={true}
         label="Last Name"
         variant="outlined"
+        name={'lastName'}
+        onChange={inputHandle}
       />
 
       <LocalizationProvider dateAdapter={AdaptaterMoment}>
@@ -72,6 +125,7 @@ const NewEmployeeForm = () => {
           value={birthDate}
           onChange={(newValue) => {
             setBirthdate(newValue)
+            datePickerHandle('dateOfBirth', newValue)
           }}
           renderInput={(params) => <TextField {...params} />}
         />
@@ -83,14 +137,27 @@ const NewEmployeeForm = () => {
           value={startDate}
           onChange={(newValue) => {
             setStartdate(newValue)
+            datePickerHandle('startDate', newValue)
           }}
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
 
-      <TextField id="outlined-basic" label="Street" variant="outlined" />
+      <TextField
+        id="outlined-basic"
+        label="Street"
+        variant="outlined"
+        name={'street'}
+        onChange={inputHandle}
+      />
 
-      <TextField id="outlined-basic" label="City" variant="outlined" />
+      <TextField
+        id="outlined-basic"
+        label="City"
+        variant="outlined"
+        name={'city'}
+        onChange={inputHandle}
+      />
 
       <div className="new-employee-form__location">
         <Box className={'new-employee-form__location__state'}>
@@ -101,7 +168,11 @@ const NewEmployeeForm = () => {
               id="demo-simple-select"
               value={userLocationState}
               label="State"
-              onChange={handleChangeLocationState}
+              name="state"
+              onChange={(event) => {
+                setuserLocationState(event.target.value)
+                inputHandle(event)
+              }}
             >
               {states.map((state, index) => (
                 <MenuItem key={index} value={state.name}>
@@ -118,18 +189,25 @@ const NewEmployeeForm = () => {
           id="outlined-basic"
           label="Zip Code"
           variant="outlined"
+          name={'zipCode'}
+          onChange={inputHandle}
         />
       </div>
 
       <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
+        <FormControl required fullWidth>
           <InputLabel id="demo-simple-select-label">Department</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
+            required={true}
             value={userDepartment}
             label="Department"
-            onChange={handleChangeDepartment}
+            name={'department'}
+            onChange={(event) => {
+              setuserDepartment(event.target.value)
+              inputHandle(event)
+            }}
           >
             {departments.map((department, index) => (
               <MenuItem key={index} value={department.name}>
@@ -150,6 +228,21 @@ const NewEmployeeForm = () => {
           Save
         </Button>
       </div>
+
+      {isShown ? (
+        <Dialog
+          ctaCallback={() => {
+            setIsShown(!isShown)
+            if (formIsValid) {
+              navigate('/employee')
+            }
+          }}
+          modalType={formIsValid ? newUserDialog : formErrorDialog}
+          closeIcon={true}
+          callToAction={true}
+          optionParams={true}
+        />
+      ) : null}
     </div>
   )
 }

@@ -29,6 +29,7 @@
     align-items: center;
     gap: 1rem;
     &__button {
+      transition: 300ms;
       border-radius: 5px;
       background-color: #1e66fe;
       padding: 17px;
