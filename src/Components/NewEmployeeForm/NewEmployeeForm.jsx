@@ -114,6 +114,7 @@ const NewEmployeeForm = () => {
         id="outlined-basic"
         required={true}
         label="Last Name"
+        aria-label="last-name"
         variant="outlined"
         name={'lastName'}
         onChange={inputHandle}
@@ -144,6 +145,7 @@ const NewEmployeeForm = () => {
       </LocalizationProvider>
 
       <TextField
+        aria-label="street"
         id="outlined-basic"
         label="Street"
         variant="outlined"
@@ -152,6 +154,7 @@ const NewEmployeeForm = () => {
       />
 
       <TextField
+        aria-label="city"
         id="outlined-basic"
         label="City"
         variant="outlined"
@@ -169,6 +172,7 @@ const NewEmployeeForm = () => {
               value={userLocationState}
               label="State"
               name="state"
+              aria-label="state"
               onChange={(event) => {
                 setuserLocationState(event.target.value)
                 inputHandle(event)
@@ -187,6 +191,7 @@ const NewEmployeeForm = () => {
           className={'new-employee-form__location__zip'}
           type="number"
           id="outlined-basic"
+          aria-label="zip code"
           label="Zip Code"
           variant="outlined"
           name={'zipCode'}
@@ -201,6 +206,7 @@ const NewEmployeeForm = () => {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             required={true}
+            aria-label="department"
             value={userDepartment}
             label="Department"
             name={'department'}
