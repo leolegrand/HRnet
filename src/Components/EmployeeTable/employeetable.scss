@@ -88,10 +88,18 @@
   }
 }
 
-.css-r11z79-MuiDataGrid-root {
-  border: 0 !important;
-}
-
 .MuiDataGrid-columnHeaderTitle {
   color: #1e66fe;
+}
+
+@media screen and (max-width: 600px) {
+  .employee-table {
+    margin-top: 60px;
+    &__search {
+      justify-content: center;
+      width: 100%;
+      left: -10px;
+      bottom: -60px;
+    }
+  }
 }

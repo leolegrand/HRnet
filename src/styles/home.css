@@ -1,1 +1,1 @@
-.main{margin-top:100px;display:flex;align-items:center;justify-content:space-between}.main__aside{width:48%}.main__form{width:48%}
+.main{margin-top:100px;display:flex;align-items:center;justify-content:space-between}.main__aside{width:48%}.main__form{width:48%}@media screen and (max-width: 1000px){.main__form{width:100%}.main__aside{display:none}}

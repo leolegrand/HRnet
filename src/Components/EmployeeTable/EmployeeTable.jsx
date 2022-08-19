@@ -58,6 +58,9 @@ const EmployeeTable = () => {
       </div>
 
       <DataGrid
+        sx={{
+          border: '0',
+        }}
         rows={rows}
         columns={columns}
         pageSize={pageSize}

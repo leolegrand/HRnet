@@ -12,3 +12,12 @@
 .main__form {
   width: 48%;
 }
+
+@media screen and (max-width: 1000px) {
+  .main__form {
+    width: 100%;
+  }
+  .main__aside {
+    display: none;
+  }
+}

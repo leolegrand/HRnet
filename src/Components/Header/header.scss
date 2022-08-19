@@ -83,3 +83,13 @@
     transform: translateY(0) scaleX(1);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    margin: 0;
+    flex-direction: column;
+  }
+  .header__title {
+    margin-bottom: 40px;
+  }
+}
