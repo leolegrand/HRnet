@@ -1,6 +1,11 @@
+// REACT
 import React from 'react'
-import EmployeeTable from '../../Components/EmployeeTable/EmployeeTable'
+
+// COMPONENTS
 import Header from '../../Components/Header/Header'
+import EmployeeTable from '../../Components/EmployeeTable/EmployeeTable'
+
+// CSS
 import '../../styles/employee.css'
 
 const Employee = () => {
@@ -8,7 +13,6 @@ const Employee = () => {
   return (
     <>
       <Header page={'employeeTable'} />
-
       <EmployeeTable />
     </>
   )

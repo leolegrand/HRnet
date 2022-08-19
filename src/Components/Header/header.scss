@@ -45,12 +45,6 @@
   }
 }
 
-@keyframes progressiveWidth {
-  to {
-    width: 85%;
-  }
-}
-
 @keyframes bounce {
   0% {
     transform: translateY(-100px) scaleX(0.75);

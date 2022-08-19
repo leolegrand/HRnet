@@ -1,5 +1,13 @@
+// REACT
 import React from 'react'
+
+// REACT ROUTER DOM
 import { Link } from 'react-router-dom'
+
+// PROPTYPES
+import PropTypes from 'prop-types'
+
+// CSS
 import '../../styles/header.css'
 
 const Header = ({ page }) => {
@@ -23,6 +31,10 @@ const Header = ({ page }) => {
       </nav>
     </header>
   )
+}
+
+Header.propTypes = {
+  page: PropTypes.string.isRequired,
 }
 
 export default Header

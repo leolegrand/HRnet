@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { employeeDatabase } from '../../services/employeeDatabase'
 
-// By default, mockup data contains a small list of employees,
+// By default, mockup data (employeeDatabase) contains a small list of employees,
 // later these mockups will be replaced by data from the API
 const initialState = employeeDatabase
 

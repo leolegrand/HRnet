@@ -1,8 +1,13 @@
-import Home from '../Pages/Home/Home'
+// REACT ROUTER DOM
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
+
+// PAGES
+import Home from '../Pages/Home/Home'
 import Employee from '../Pages/Employee/Employee'
-import Error404 from '../Pages/Error404/error404'
+import Error404 from '../Pages/Error404/Error404'
+
+// CSS
+import './App.css'
 
 function App() {
   return (

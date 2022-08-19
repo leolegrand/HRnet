@@ -1,9 +1,16 @@
+// REACT
 import React from 'react'
+
+// COMPONENTS
 import Video from '../../Components/Video/Video'
 import Header from '../../Components/Header/Header'
-import '../../styles/home.css'
 import NewEmployeeForm from '../../Components/NewEmployeeForm/NewEmployeeForm'
+
+// MEDIA
 import infographic from '../Home/info-graphic.mp4'
+
+// CSS
+import '../../styles/home.css'
 
 const Home = () => {
   document.title = 'HRnet - Create Employee'

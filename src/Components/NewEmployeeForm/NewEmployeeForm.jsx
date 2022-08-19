@@ -1,32 +1,40 @@
+// REACT
 import React, { useState } from 'react'
+
+// REACT ROUTER DOM
+import { useNavigate } from 'react-router-dom'
+
+// REDUX / REDUX TOOLKIT
 import { useDispatch } from 'react-redux'
 import { employeesAddition } from '../../features/employees/employeesSlice'
 
+// MATERIAL UI
 import Box from '@mui/material/Box'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
-// textfield import
 import TextField from '@mui/material/TextField'
-
-// Date picker import
+import { Button } from '@mui/material'
+import SaveRoundedIcon from '@mui/icons-material/SaveRounded'
+// MUI x Date
 import AdaptaterMoment from '@date-io/moment'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 
+// LEOLEGRANDM-SIMPLE-DIALOG
+import Dialog from 'leolegrandm-simple-dialog/dist/components/Dialog'
+
+// SERVICES
 import { states } from '../../services/usaStates'
 import { departments } from '../../services/hrnetDepartments'
-import { Button } from '@mui/material'
 
-import SaveRoundedIcon from '@mui/icons-material/SaveRounded'
-
-import Dialog from 'leolegrandm-simple-dialog/dist/components/Dialog'
+// MEDIA
 import newUser from './new-user.png'
 import formError from './form-error.png'
 
+// CSS
 import '../../styles/newemployeeform.css'
-import { useNavigate } from 'react-router-dom'
 
 const NewEmployeeForm = () => {
   const dispatch = useDispatch()
@@ -88,11 +96,15 @@ const NewEmployeeForm = () => {
       user.department !== ''
     ) {
       setFormIsValid(true)
+      // successfull form dialog appear
       setIsShown(!isShown)
+      // create an ID for the user (needed to use the MUI data-table)
       user.id = `${user.firstName}${user.lastName}${user.department}`
+      // add the user from the form to the application's state
       dispatch(employeesAddition(user))
     } else {
       setFormIsValid(false)
+      // error dialog appear
       setIsShown(!isShown)
     }
   }

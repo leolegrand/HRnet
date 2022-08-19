@@ -1,10 +1,18 @@
+// REACT
 import React from 'react'
-import Video from '../../Components/Video/Video'
-import '../../styles/error404.css'
-import errorVideo from './error-video.mp4'
 import { Link } from 'react-router-dom'
 
-const error404 = () => {
+// COMPONENTS
+import Video from '../../Components/Video/Video'
+
+// MEDIA
+import errorVideo from './error-video.mp4'
+
+// CSS
+import '../../styles/error404.css'
+
+const Error404 = () => {
+  document.title = 'HRnet - Error 404'
   return (
     <>
       <Video video={errorVideo} />
@@ -18,4 +26,4 @@ const error404 = () => {
   )
 }
 
-export default error404
+export default Error404

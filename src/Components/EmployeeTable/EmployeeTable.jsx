@@ -1,14 +1,21 @@
+// REACT
 import React, { useState } from 'react'
-import '../../styles/employeetable.css'
 
+// REDUX
+import { useSelector } from 'react-redux'
+
+// MATERIAL UI
 import { DataGrid } from '@mui/x-data-grid'
 
+// MEDIA
 import humanRessources from './human-resources.png'
 import glass from './magnifying-glass.png'
 
-import { useSelector } from 'react-redux'
+// CSS
+import '../../styles/employeetable.css'
 
 const EmployeeTable = () => {
+  // get default data from state
   const employeeDatabase = useSelector((state) => state)
 
   const columns = [
@@ -28,6 +35,7 @@ const EmployeeTable = () => {
 
   const [rows, setRows] = useState(employeeDatabase)
 
+  // filter rows based on user input
   const filterEmployees = (e) => {
     setRows(
       employeeDatabase.filter((item) => {
@@ -42,7 +50,11 @@ const EmployeeTable = () => {
   return (
     <div className="employee-table">
       <div className="employee-table__bg">
-        <img className="employee-table__img" src={humanRessources} alt="" />
+        <img
+          className="employee-table__img"
+          src={humanRessources}
+          alt="background"
+        />
       </div>
 
       <h2 className="employee-table__title">Current Employee</h2>
@@ -54,7 +66,11 @@ const EmployeeTable = () => {
           type="text"
           onChange={filterEmployees}
         />
-        <img src={glass} alt="" className="employee-table__search-icon" />
+        <img
+          src={glass}
+          alt="magnifying glass icon"
+          className="employee-table__search-icon"
+        />
       </div>
 
       <DataGrid

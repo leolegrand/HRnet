@@ -1,3 +1,5 @@
+// mockup data exists pending the creation of a back-end with which we can interact
+
 const employeeDatabase = [
   {
     id: 'BrunoCassouletHuman Ressources',

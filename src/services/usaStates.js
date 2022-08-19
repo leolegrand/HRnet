@@ -1,6 +1,8 @@
+// I chose to have the data hard coded within the application and not from an API
+// since this data is not dynamic and is not destined to change regularly.
+
 const states = [
   { value: 'AK', name: 'Alaska' },
-  { value: 'TX', name: 'Texas' },
   { value: 'AL', name: 'Alabama' },
   { value: 'AR', name: 'Arkansas' },
   { value: 'AZ', name: 'Arizona' },

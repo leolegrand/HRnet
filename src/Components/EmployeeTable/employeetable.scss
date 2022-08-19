@@ -25,20 +25,10 @@
     left: 25px;
     color: #1e66fe;
   }
-  // &__search {
-  //   position: absolute;
-  //   padding: 1rem;
-  //   border-radius: 5px;
-  //   position: relative;
-  //   border: 2px solid #1e66fe;
-  //   height: 2rem;
-  //   width: 350px;
   &:focus {
     outline: none !important;
     border: 2px solid #1e66fe;
   }
-  // }
-
   &__search {
     z-index: 3;
     position: absolute;
