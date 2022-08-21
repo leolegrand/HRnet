@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+![leolegrandm-simple-dialog's example](./readme.png "leolegrandm-simple-dialog's example")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![leolegrandm-simple-dialog's example](./readme2.png "leolegrandm-simple-dialog's example")
 
-## Available Scripts
+![leolegrandm-simple-dialog's example](./readme3.png "leolegrandm-simple-dialog's example")
 
-In the project directory, you can run:
+# 🧑‍💻 HRnet
 
-### `npm start`
+HRnet is a project where the main goal is to convert an entire aging JQuery application into a robust, higher performance React application with a more modern design.
+This application allows you to add, via a form, employees to a data table, the data is persistent within the application thanks to a state manager
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [NodeJS](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is developed with:
 
-### `npm run build`
+- [React 18.1.0](https://fr.reactjs.org/)
+- [React Router 6.3.0](https://reactrouter.com/)
+- [React Redux 8.0.2](https://reactrouter.com/)
+- [Redux Toolkit 1.8.3](https://redux-toolkit.js.org/)
+- [Proptypes 15.8.1](https://www.npmjs.com/package/prop-types)
+- [Material UI 5.10.0](https://mui.com/material-ui/)
+- [moment.js 2.29.4](https://momentjs.com/)
+- [leolegrandm-simple-dialog 0.2.1](https://github.com/leolegrand/leolegrandm-simple-dialog)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+git clone https:https://github.com/leolegrand/LeoLegrand_14_01082022
+```
 
-### `npm run eject`
+Install the dependencies/npm packages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> By default the server is hosted on http://localhost:3000
 
-## Learn More
+## 🔗 Original app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Follow this link to find the original repo of the application, before its rework

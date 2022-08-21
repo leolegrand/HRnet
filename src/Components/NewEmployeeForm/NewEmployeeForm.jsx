@@ -249,16 +249,16 @@ const NewEmployeeForm = () => {
 
       {isShown ? (
         <Dialog
-          ctaCallback={() => {
+          callToActionCallback={() => {
             setIsShown(!isShown)
             if (formIsValid) {
               navigate('/employee')
             }
           }}
-          modalType={formIsValid ? newUserDialog : formErrorDialog}
+          modal={formIsValid ? newUserDialog : formErrorDialog}
           closeIcon={true}
           callToAction={true}
-          optionParams={true}
+          allowCustomization={true}
         />
       ) : null}
     </div>
